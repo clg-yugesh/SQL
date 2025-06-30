@@ -30,5 +30,9 @@ update sales
 set amount = 0
 where item_type = 'fast food';
 
+-- change datatype
+alter table sales
+alter column amount int;
+
 -- print
-select * from sales where order_id < 4;
+select * from sales; -- where order_id < 4;
