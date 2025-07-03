@@ -1,6 +1,5 @@
 -- CREATE DATABASE fast_food;
 use fast_food
-drop table sales
 
 -- create table
 create table sales (
@@ -42,3 +41,5 @@ exec sp_rename 'sale.amount','rate', 'column';
 
 -- print
 select * from sale; -- where order_id < 4;
+
+drop table sale
