@@ -34,5 +34,11 @@ where item_type = 'fast food';
 alter table sales
 alter column amount int;
 
+-- change table name
+exec sp_rename 'sales','sale';
+
+-- change column name
+exec sp_rename 'sale.amount','rate', 'column';
+
 -- print
-select * from sales; -- where order_id < 4;
+select * from sale; -- where order_id < 4;
