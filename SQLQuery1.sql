@@ -24,14 +24,17 @@ values
 alter table sales
 drop column amount;
 
--- update
-update sales
-set amount = 0
-where item_type = 'fast food';
+-- delete particular row
+delete from sale where order_id = 2
 
 -- change datatype
 alter table sales
 alter column amount int;
+
+-- update
+update sales
+set amount = 0
+where item_type = 'fast food';
 
 -- change table name
 exec sp_rename 'sales','sale';
