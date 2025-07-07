@@ -1,6 +1,6 @@
 create database employees007;
 
-use employees007
+use employees007;
 
 CREATE TABLE Employees (
     EmployeeID INT PRIMARY KEY,
@@ -38,7 +38,7 @@ select * from Employees order by Salary DESC;
 select distinct Department from Employees;
 
 -- using like
-select * from employees where FirstName LIKE 'A%';
+select * from employees where FirstName LIKE '%A';
 
 -- using between 
 select * from employees where Salary between  60000 and 70000;
@@ -46,4 +46,43 @@ select * from employees where Salary between  60000 and 70000;
 -- using in 
 SELECT * FROM Employees WHERE Department IN ('HR', 'IT');
 
-SELECT Employees.FirstName, Department.DepartmentName FROM Employees JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+
+
+
+
+
+drop table Employees;
+drop table Departments;
+
+
+ -- creating two tables and connecting it with a key then print the contents
+
+CREATE TABLE Departments (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(50)
+);
+
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+
+-- Departments
+INSERT INTO Departments (DepartmentID, DepartmentName) VALUES
+(1, 'HR'),
+(2, 'IT'),
+(3, 'Finance');
+
+-- Employees
+INSERT INTO Employees (EmployeeID, FirstName, DepartmentID) VALUES
+(101, 'Alice', 1),
+(102, 'Bob', 2),
+(103, 'Charlie', 1),
+(104, 'Diana', 3);
+
+
+SELECT Employees.FirstName, Departments.DepartmentName
+FROM Employees
+JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;

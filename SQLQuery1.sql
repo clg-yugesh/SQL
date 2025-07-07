@@ -1,15 +1,13 @@
--- CREATE DATABASE fast_food;
+-- 1. Insert, Update, Delete rows and Delete tables.
+CREATE DATABASE fast_food;
 use fast_food
 
 -- create table
 create table sales (
    order_id int,
-   item_type VARCHAR(20)
+   item_type VARCHAR(20),
+   amount float
    );
-
--- add column
-alter table sales
-add amount float;
 
 -- insert elements 
 insert into sales(order_id,item_type,amount) 
@@ -20,29 +18,38 @@ values
 (004, 'beverage', 40.35),
 (005, 'fast food', 55.00);
 
+-- update
+update sales
+set amount = 0
+where item_type = 'fast food';
+
 -- deleting a column
 alter table sales
 drop column amount;
 
 -- delete particular row
-delete from sale where order_id = 2
+delete from sales where order_id = 2
 
+-- delete table 
+drop table sales;
+
+
+-- print
+select * from sales; 
+
+
+
+
+
+
+-- some other things for no reasons (?)
 -- change datatype
 alter table sales
 alter column amount int;
 
--- update
-update sales
-set amount = 0
-where item_type = 'fast food';
 
 -- change table name
 exec sp_rename 'sales','sale';
 
 -- change column name
 exec sp_rename 'sale.amount','rate', 'column';
-
--- print
-select * from sale; -- where order_id < 4;
-
-drop table sale
