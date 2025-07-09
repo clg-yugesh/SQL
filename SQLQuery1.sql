@@ -1,4 +1,3 @@
--- 1. Insert, Update, Delete rows and Delete tables.
 CREATE DATABASE fast_food;
 use fast_food
 
@@ -18,11 +17,6 @@ values
 (004, 'beverage', 40.35),
 (005, 'fast food', 55.00);
 
--- update
-update sales
-set amount = 0
-where item_type = 'fast food';
-
 -- deleting a column
 alter table sales
 drop column amount;
@@ -30,26 +24,27 @@ drop column amount;
 -- delete particular row
 delete from sales where order_id = 2
 
+-- -- change datatype
+-- alter table sales
+-- alter column amount int;
+
+
 -- delete table 
 drop table sales;
 
 
+
+
+-- update
+update sales
+set amount = 0
+where item_type = 'fast food';
+
+-- -- change table name
+-- exec sp_rename 'sales','sale';
+
+-- -- change column name
+-- exec sp_rename 'sale.amount','rate', 'column';
+
 -- print
 select * from sales; 
-
-
-
-
-
-
--- some other things for no reasons (?)
--- change datatype
-alter table sales
-alter column amount int;
-
-
--- change table name
-exec sp_rename 'sales','sale';
-
--- change column name
-exec sp_rename 'sale.amount','rate', 'column';
