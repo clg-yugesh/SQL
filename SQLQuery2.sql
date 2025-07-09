@@ -46,10 +46,10 @@ select * from employees where Salary between  60000 and 70000;
 -- using in 
 SELECT * FROM Employees WHERE Department IN ('HR', 'IT');
 
+-- using alias
+SELECT FirstName AS 'First Name', LastName AS 'Last Name' FROM Employees;
 
-
-
-
+-- -----------------------------------------------------------------------------
 
 drop table Employees;
 drop table Departments;
@@ -82,7 +82,8 @@ INSERT INTO Employees (EmployeeID, FirstName, DepartmentID) VALUES
 (103, 'Charlie', 1),
 (104, 'Diana', 3);
 
-
+-- using joins
 SELECT Employees.FirstName, Departments.DepartmentName
 FROM Employees
 JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+
