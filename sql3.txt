@@ -1,0 +1,47 @@
+1. Single Row Subquery
+
+SELECT FirstName, Salary FROM Employees WHERE Salary = (SELECT MAX(Salary) FROM
+Employees);
+
+Finds employees with the highest salary.
+
+2. Multiple Row Subquery
+
+SELECT FirstName FROM Employees WHERE DepartmentID IN (SELECT DepartmentID FROM
+Departments WHERE Location = 'Chennai');
+
+Lists employees working in Chennai departments
+
+3. Multiple Column Subquery
+
+SELECT FirstName, DepartmentID FROM Employees WHERE (DepartmentID, ManagerID) IN
+(SELECT DepartmentID, ManagerID FROM Departments WHERE Location = 'Mumbai');
+
+Compares multiple columns (only supported in some databases; SQL Server may need join instead)
+
+4. Correlated Subquery
+
+Depends on the outer query and is executed for each row of the outer query.
+
+SELECT E1.FirstName, E1.Salary FROM Employees E1 WHERE Salary > ( SELECT AVG(Salary)
+FROM Employees E2 WHERE E1.DepartmentID = E2.DepartmentID);
+
+Finds employees earning more than their department's average.
+
+5. Subquery in FROM Clause
+
+Used to treat a subquery as a temporary table.
+
+SELECT DepartmentID, AVG(Salary) AS AvgSalary FROM ( SELECT DepartmentID, Salary
+FROM Employees) AS Temp GROUP BY DepartmentID;
+
+Calculates average salary by department.
+
+6. Subquery in SELECT Clause
+
+Used to compute a derived value for each row.
+
+SELECT FirstName, (SELECT COUNT(*) FROM Projects WHERE Projects.EmployeeID =
+Employees.EmployeeID) AS ProjectCount FROM Employees;
+
+Shows number of projects per employee.
