@@ -1,37 +1,16 @@
--- 1. Insert, Update, Delete rows and Delete tables.
 
-create database fastfood;
-
-use fastfood;
--- drop table sales;
-create table sales (
-	names varchar(20),
-	catagory bit,
-	amount float
-);
-
--- insert 
-insert into sales
-values 
-('yugesh',0,100),
-('gaayu',1, 89);
-
--- update
-update sales 
-set amount = 0
-where names = 'yugesh';
-
--- delete column
-alter table sales
-drop column catagory;
-
--- delete table
-drop table sales
-
--- print
-select * from sales;
+SELECT FirstName, Salary FROM Employees WHERE Salary = (SELECT MAX(Salary) FROM
+Employees);
 
 
+SELECT FirstName FROM Employees WHERE DepartmentID IN (SELECT DepartmentID FROM
+Departments WHERE Location = 'Chennai');
 
 
--- 2. Retrieving Data using queries.
+SELECT DepartmentID, AVG(Salary) AS AvgSalary FROM ( SELECT DepartmentID, Salary
+FROM Employees) AS Temp GROUP BY DepartmentID;
+
+
+SELECT FirstName, (SELECT COUNT(*) FROM Projects WHERE Projects.EmployeeID = Employees.EmployeeID) 
+AS ProjectCount FROM Employees;
+
