@@ -69,7 +69,3 @@ SELECT Employees.FirstName, Departments.DepartmentName
 FROM Employees
 JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
 
--- ---------------------------------------------------------------------------------------
-
--- ex 3
-

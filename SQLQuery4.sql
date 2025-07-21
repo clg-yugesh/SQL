@@ -1,4 +1,4 @@
-﻿use my_db;
+﻿use employees007;
 
 CREATE TABLE Students (
     StudentID INT PRIMARY KEY,
