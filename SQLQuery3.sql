@@ -85,7 +85,7 @@ WHERE Salary > (
 -- subquery in from clause
 SELECT DepartmentID, AVG(Salary) AS AvgSalary 
 FROM (
-    SELECT DepartmentID, Salary 
+    SELECT DepartmentID, Salary
     FROM Employees
 ) AS Temp
 GROUP BY DepartmentID;
