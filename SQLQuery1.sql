@@ -18,6 +18,8 @@ values
 (005, 'fast food', 55.00);
 
 
+select * from sales;
+
 -- deleting a row
 delete from sales where order_id = 2;
 
@@ -45,7 +47,7 @@ drop column rate;
 drop table sale;
 
 
-select * from sales;
+
 
 -- print
 select * from sale; 
