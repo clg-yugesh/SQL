@@ -7,12 +7,12 @@ USE CompanyDB;
 -- Create Departments table with PRIMARY KEY
 CREATE TABLE Departments (
     DeptID INT PRIMARY KEY,
-    DeptName VARCHAR(50) NOT NULL
+    DeptName VARCHAR(50) NOT NULL 
 );
 
 -- Create Employees table with:
 CREATE TABLE Employees (
-    EmpID INT PRIMARY KEY,                        -- PRIMARY KEY
+    EmpID INT PRIMARY KEY,                       -- PRIMARY KEY
     Name VARCHAR(50) NOT NULL,                   -- NOT NULL
     Email VARCHAR(100) UNIQUE,                   -- UNIQUE
     Salary DECIMAL(10, 2) CHECK (Salary > 0),    -- CHECK

@@ -1,6 +1,6 @@
 CREATE DATABASE SubqueryDemoDB;
 
-USE SubqueryDemoDB;
+
 
 -- Employees table
 CREATE TABLE Employees (
@@ -92,7 +92,7 @@ GROUP BY DepartmentID;
 
 -- subquery in select clause
 SELECT FirstName, 
-       (SELECT COUNT(*) 
+       (SELECT COUNT(*)
         FROM Projects 
         WHERE Projects.EmployeeID = Employees.EmployeeID) AS ProjectCount
 FROM Employees;

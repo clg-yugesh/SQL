@@ -1,37 +1,48 @@
 use employees007;
 
+drop table Details;
 
 CREATE TABLE Details (
     ID INT PRIMARY KEY,
     Name VARCHAR(150),
     dept VARCHAR(50),
     RollNumber int
-   
 );
 
-INSERT INTO Details VALUES (101,'Abi','DSA',242201);
-INSERT INTO Details VALUES (234,'Avanthika','DSA',242202);
-INSERT INTO Details VALUES (145,'Dhani','DSA',242203);
-INSERT INTO Details VALUES (112,'Gayu','DSA',242204);
-INSERT INTO Details VALUES (147,'Kani','DSA',242205);
+INSERT INTO Details VALUES 
+(101,'Arul','DSA',242216),
+(102,'Bala','DSA',242217),
+(103,'Chandru','DSA',242218),
+(145,'Abhinash','DSA',242238),
+(156,'Yugesh','SSS',242237);
 
-SELECT * FROM Details WHERE RollNumber = 242203;
 
----to retrieving data
+-- SELECT ALL COLUMNS
+SELECT * FROM Details;
 
+-- select spcific row
+SELECT * FROM Details WHERE RollNumber = 242237;
+
+--- select specific columns
 SELECT ID, RollNumber  FROM Details ;
 
+-- using WHERE clause
 SELECT * FROM Details WHERE dept = 'DSA';
 
+-- using ORDER BY clause
 SELECT * FROM Details ORDER BY ID DESC;
 
+-- using DISTINCE (Remove Duplicates)
 SELECT DISTINCT dept FROM Details;
 
+-- using LIKE (Pattern Matching)
 SELECT * FROM Details WHERE Name LIKE 'A%';
 
-SELECT * FROM Details WHERE RollNumber BETWEEN 242203 AND 242205;
+-- using BETWEEN (Range Filtering)
+SELECT * FROM Details WHERE RollNumber BETWEEN 242236 AND 242238;
 
-SELECT * FROM Details WHERE ID IN (112,147);
+-- using in (Multiple Match)
+SELECT * FROM Details WHERE ID IN (145,103);
 
-SELECT Employees.FirstName, Departments.DepartmentName FROM Employees JOIN Departments ON
-Employees.DepartmentID = Departments.DepartmentID;
+SELECT id as 'Register Number' from Details;
+
