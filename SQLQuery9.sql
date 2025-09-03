@@ -20,3 +20,7 @@ RIGHT JOIN Departments on Employees.ManagerID = Departments.ManagerID;
 select Employees.FirstName, Departments.DepartmentName
 from Employees
 FULL JOIN Departments on Employees.ManagerID = Departments.ManagerID; 
+
+select Employees.FirstName, Departments.DepartmentName
+from Employees
+FULL OUTER JOIN Departments on Employees.ManagerID = Departments.ManagerID; 
