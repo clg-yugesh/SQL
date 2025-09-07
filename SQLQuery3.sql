@@ -1,6 +1,6 @@
 CREATE DATABASE SubqueryDemoDB;
 
-USE SubqueryDemoDB;
+
 
 -- Employees table
 CREATE TABLE Employees (
@@ -85,14 +85,14 @@ WHERE Salary > (
 -- subquery in from clause
 SELECT DepartmentID, AVG(Salary) AS AvgSalary 
 FROM (
-    SELECT DepartmentID, Salary 
+    SELECT DepartmentID, Salary
     FROM Employees
 ) AS Temp
 GROUP BY DepartmentID;
 
 -- subquery in select clause
 SELECT FirstName, 
-       (SELECT COUNT(*) 
+       (SELECT COUNT(*)
         FROM Projects 
         WHERE Projects.EmployeeID = Employees.EmployeeID) AS ProjectCount
 FROM Employees;
