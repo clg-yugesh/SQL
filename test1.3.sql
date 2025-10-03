@@ -70,7 +70,7 @@ where DeptID in (SELECT DeptID FROM Projects);
 -- to find employees whose salary 
 -- is greater than all employees in department 3.
 SELECT name from Employees1
-where Salary > all
+where Salary > all 
 (SELECT Salary FROM Employees1 where DeptID = 3);
 
 -- display employees whose salary is greater than 
@@ -78,3 +78,10 @@ where Salary > all
 SELECT name from Employees1
 where Salary > (SELECT AVG(Salary) from Employees1 where DeptID = DeptID);
 
+SELECT name
+FROM Employees1 E1
+WHERE Salary > (
+    SELECT AVG(Salary)
+    FROM Employees1 E2
+    WHERE E2.DeptID = E1.DeptID
+);
