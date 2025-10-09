@@ -20,7 +20,7 @@ CREATE TABLE StudentTbl (
     Age INT
 );
 GO
-
+SELECT * from StudentTbl;
 -- Insert initial data into the table
 INSERT INTO StudentTbl (StudentID, Name, Marks, Age) VALUES
 (1, 'Arun', 85, 20),
@@ -45,21 +45,6 @@ ELSE
     PRINT 'ONLY ELIGIBLE FOR FUNDATIONAL COURSES'
 
 
-DECLARE @sid INT = 1;
-DECLARE @smark INT 
-
-SELECT @smark = Marks FROM StudentTbl
-WHERE StudentID = @sid;
-
-IF @smark >= 80
-    PRINT 'Grade: Distinction'
-ELSE IF @smark >=60 
-    PRINT 'Grade: First Class'
-ELSE IF @smark = 50
-    PRINT 'Grade: Second Class'
-ELSE 
-    PRINT 'Grade: Fail'
-
 
 -- Display the created table data
 SELECT * FROM StudentTbl;
@@ -70,12 +55,6 @@ GO
 ---------------------------------------------------------------------
 
 -- Simple IF...ELSE block using a declared variable
-DECLARE @marks INT = 65;
-IF @marks >= 50
-    PRINT 'Simple Check: Pass';
-ELSE
-    PRINT 'Simple Check: Fail';
-GO
 
 -- Checking student's pass/fail status from the table (StudentID = 2, Marks = 45)
 DECLARE @sid INT = 2;
@@ -96,13 +75,6 @@ GO
 ---------------------------------------------------------------------
 
 -- Simple WHILE loop to print numbers 1 through 5
-DECLARE @i INT = 1;
-WHILE @i <= 5
-BEGIN
-    PRINT 'Simple Loop Number: ' + CAST(@i AS VARCHAR);
-    SET @i = @i + 1;
-END
-GO
 
  -- Loop through all student records and print names one by one
 DECLARE @id INT = 1;
@@ -126,22 +98,6 @@ GO
 ---------------------------------------------------------------------
 -- 4. BREAK and CONTINUE EXAMPLES (Used inside a WHILE loop)
 ---------------------------------------------------------------------
-
--- Example 1: Basic demonstration of BREAK and CONTINUE
-DECLARE @x INT = 0;
-WHILE @x < 10
-BEGIN
-    SET @x = @x + 1;
-    
-    IF @x = 5
-        CONTINUE; -- Skips the PRINT statement for this iteration (Value: 5 is not printed)
-        
-    IF @x = 8
-        BREAK;    -- Exits the loop immediately
-        
-    PRINT 'Break/Continue Value: ' + CAST(@x AS VARCHAR);
-END
-GO
 
 -- Example 2: Using BREAK/CONTINUE with student marks
 DECLARE @studentID_iter INT = 1, @mark_check INT;
