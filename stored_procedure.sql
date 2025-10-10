@@ -47,9 +47,11 @@ DECLARE @Stock INT;
 SELECT @Stock = Stock, @Price = Price FROM Products WHERE ProductID = @ProductID;
 IF @Stock >= @Quantity
 BEGIN
+
 -- Insert into Sales
 INSERT INTO Sales (ProductID, Quantity, TotalAmount)
 VALUES (@ProductID, @Quantity, @Quantity * @Price);
+
 -- Update Stock
 UPDATE Products
 SET Stock = Stock - @Quantity

@@ -19,6 +19,7 @@ SELECT * FROM BankAccounts;
 BEGIN TRANSACTION;
 
 DECLARE @transactionAmt DECIMAL(10,2) = 1000.00;
+
 IF (SELECT Balance FROM BankAccounts WHERE AccNo = 101) < @transactionAmt
 BEGIN
     PRINT 'Insufficient balance! Rolling back...';
