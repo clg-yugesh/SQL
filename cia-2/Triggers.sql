@@ -1,5 +1,5 @@
-CREATE DATABASE TransactionDB;
-USE TransactionDB;
+CREATE DATABASE TransactionDB2;
+USE TransactionDB2;
 
 CREATE TABLE Students (
     StudentID INT IDENTITY(1,1) PRIMARY KEY,

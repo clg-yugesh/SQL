@@ -65,7 +65,7 @@ FROM StudentTbl
 WHERE StudentID = @sid;
 
 IF @studentMarks >= 50
-    PRINT 'Student ' + CAST(@sid AS VARCHAR) + ' Passed';
+    PRINT 'Student Passed';
 ELSE
     PRINT 'Student ' + CAST(@sid AS VARCHAR) + ' Failed';
 GO

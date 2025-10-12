@@ -18,9 +18,7 @@ SELECT * FROM BankAccounts;
 
 BEGIN TRANSACTION;
 
-DECLARE @transactionAmt DECIMAL(10,2) = 1000.00;
-
-IF (SELECT Balance FROM BankAccounts WHERE AccNo = 101) < @transactionAmt
+IF (SELECT Balance FROM BankAccounts WHERE AccNo = 101) < 1000
 BEGIN
     PRINT 'Insufficient balance! Rolling back...';
     ROLLBACK TRANSACTION;
@@ -29,7 +27,7 @@ END;
 ELSE
 BEGIN
     UPDATE BankAccounts
-    SET Balance = Balance - @transactionAmt
+    SET Balance = Balance - 1000
     WHERE AccNo = 101;  
 END;
 
@@ -38,7 +36,7 @@ END;
 IF @@ERROR = 0
 BEGIN
     UPDATE BankAccounts
-    SET Balance = Balance + @transactionAmt
+    SET Balance = Balance + 1000
     WHERE AccNo = 102;  
     COMMIT TRANSACTION;
     PRINT 'Transaction Successful: Amount Transferred';

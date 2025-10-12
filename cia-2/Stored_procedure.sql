@@ -67,7 +67,6 @@ END;
 -- Execute Example:
 EXEC AddSale @ProductID = 1, @Quantity = 2;
 
-
 -- If stock available → Sale added, stock updated.
 -- If stock not enough → Prints error message, no changes made.
 -- 3. View Sales by Product
@@ -97,4 +96,4 @@ END;
 
 exec UpdateProductPrice @ProductID = 2, @NewPrice = 21000
 
-select * from Products;
+select * from Sales;
