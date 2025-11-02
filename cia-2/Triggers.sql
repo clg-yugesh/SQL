@@ -27,12 +27,14 @@ BEGIN
     INSERT INTO AuditLog(StudentID, ActionType, ActionDate)
     SELECT StudentID, 'INSERT', GETDATE()
     FROM inserted;
-END;
+END;noten
 
 -- Test it:
 INSERT INTO Students (StudentName, Department, Marks)
 VALUES ('Priya', 'CSE', 85);
 ------------------------------------------------------------------------------
+
+
 -- Step 3: AFTER UPDATE Trigger
 -- When student marks are updated, log the old and new marks.
 CREATE TRIGGER trg_AfterUpdate_Students
@@ -78,3 +80,5 @@ WHERE StudentID = 1;
 -- AuditLog will store a record that a student record was deleted.
 --  Step 5: Check Logs
 SELECT * FROM AuditLog;
+
+

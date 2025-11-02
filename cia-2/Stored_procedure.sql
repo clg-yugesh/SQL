@@ -8,7 +8,7 @@ ProductName VARCHAR(100),
 Price DECIMAL(10,2),
 Stock INT
 );
-
+SELECT * FROM Products
 CREATE TABLE Sales (
 SaleID INT IDENTITY(1,1) PRIMARY KEY,
 ProductID INT,
