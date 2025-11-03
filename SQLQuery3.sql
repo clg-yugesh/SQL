@@ -1,5 +1,7 @@
 CREATE DATABASE SubqueryDemoDB;
 
+use SubqueryDemoDB;
+
 
 
 -- Employees table
